@@ -32,7 +32,7 @@ int inicio_jogo(){
     int pilhastotais = qnt + 2;
     printf("%i",pilhastotais);
 
-    int i,j,k,r;
+    int i,j,k;
 
     for (i=0; i<pilhastotais; i++){
         inicializaPilha(&pilha[i]);
@@ -43,11 +43,9 @@ int inicio_jogo(){
             guarda = j*qnt;
             auxiliar[guarda] = j;
             //printf("%i\n",auxiliar[guarda]);
-            r=auxiliar[guarda];
         }
     }
-    printf("%i\n",r);
-
+    printf("%i\n",auxiliar[guarda]);
 
 }
 

@@ -5,9 +5,7 @@
 PILHA pilha[];
 
 int inicio_jogo();
-int qnt;
-
-int guarda;
+int qnt, n;
 
 int auxiliar[];
 
@@ -17,6 +15,7 @@ void main(){
     printf("______________________________________________________\n\n\n\n\n");
 
     qnt = inicio_jogo();
+    //inicio_jogo();
 }
 //Parte 1 - Receber o n do usuario;
 
@@ -28,40 +27,51 @@ int inicio_jogo(){
         printf("--> TEM QUE SER ENTRE 3 E 5\n\n\n");
         inicio_jogo();
     }
-
+//Total de pilhas do jogo:
     int pilhastotais = qnt + 2;
-    printf("%i",pilhastotais);
+    printf("%i\n",pilhastotais);
 
-    int i,j,k;
-
+    int i;
+//Inicializando as pilhas ainda vazias:
     for (i=0; i<pilhastotais; i++){
         inicializaPilha(&pilha[i]);
         //printf("oi");
     }
-    for (k=0; k<=qnt; k++){
-        for (j=1; j<=qnt; j++){
-            guarda = j*qnt;
-            auxiliar[guarda] = j;
-            //printf("%i\n",auxiliar[guarda]);
+
+//agora tento colocar os valores dentro de um vetor para depois embaralhar e colocar aleeatoriamente nas pilhastotais-2;
+
+    //int n = 0;
+
+    for(int m=-1; m<=qnt; m++){
+        for(int x=1; x<=(qnt+1); x++){
+            n++;
+            auxiliar[n] = x;
+            //printf("oi");
+
+            //return x;
+            printf("%i\n", auxiliar[n]);
         }
     }
-    printf("%i\n",auxiliar[guarda]);
+
+    embaralhar(auxiliar, n);
 
 }
 
-//Parte 2 - Colocar os elementos aleatorios na pilha;
+int embaralhar(int *vet, int vetSize)
+{
+	for (int i = 1; i <= vetSize; i++)
+	{
+		int r = rand() % vetSize;
 
+		int temp = vet[i];
+		vet[i] = vet[r];
+		vet[r] = temp;
 
-
-//Parte 3 - Printar pilhas;
-
-
-
-//Parte 4 - Trocar os elementos da pilha;
-
-
-
-//Parte 5 - Verificar se o jogo terminou;
+	}
+	for (int re = 1; re<= vetSize; re++){
+        printf("%i\n", vet[re]);
+	}
+}
 
 
 
